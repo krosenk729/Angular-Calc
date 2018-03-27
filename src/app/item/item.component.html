@@ -1,0 +1,34 @@
+
+<div class="col">
+	<div class="card">
+		<div class="card-header">
+			<h3 class="card-title">
+				<label for="item-name">Item One</label>
+				<input type="text" placeholder="name" id="item-name" [(ngModel)]="name" name="name">
+			</h3>
+		</div>
+		<div class="card-body">
+			<form id="item-1-form">
+				<fieldset class="form-group">
+					<label for="item-cost">Price</label>
+					<input type="number" class="form-control" id="item-cost" placeholder="0.00" min="0" max="100000" required [(ngModel)]="price" name="price">
+					<div class="input-group-addon">
+
+					</div>
+				</fieldset>
+				<fieldset class="form-group">
+					<label for="item-size">Size</label>
+					<div class="input-group" id="item-size">
+						<input type="number" class="form-control" id="item-size" placeholder="28" required [(ngModel)]="sizeqty" name="sizeqty">
+						<select class="form-control" id="item-sizeunit"  aria-label="unit size" [(ngModel)]="unit" name="unit">
+							<option *ngFor="let u of units" value="{{u.value}}">{{u.name}}</option>
+						</select>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+		<ul class="list-group list-group-flush" id="item-1-unit-cost">
+			<li class="list-group-item">${{ price / sizeqty }} per {{unit}}</li>		
+		</ul>
+	</div>
+</div><!-- col --> 
