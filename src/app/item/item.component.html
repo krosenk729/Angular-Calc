@@ -1,4 +1,3 @@
-
 <div class="col">
 	<div class="card">
 		<div class="card-header">
@@ -30,7 +29,7 @@
 			</div>
 			<div *ngIf="unit != 'each'">
 				${{ calcPrice | number:'1.2-2' }} per 
-				<input type="number" class="form-control d-inline" id="item-size" placeholder="28" required [(ngModel)]="calcQty" name="calcQty" (change)="handleNewCalc($event)">
+				<input type="number" class="form-control d-inline" id="item-size" placeholder="28" required [(ngModel)]="calcQty" name="calcQty" (change)="handleNewCalc($event)" />
 				<select class="form-control d-inline" id="item-sizeunit"  aria-label="unit size" [(ngModel)]="calcUnit" name="calcUnit" (change)="handleNewCalc($event)">
 					<option *ngFor="let u of units" value="{{u.value}}">{{u.name}}</option>
 				</select>
