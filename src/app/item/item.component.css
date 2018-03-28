@@ -11,6 +11,22 @@
 	overflow: auto;
 }
 
+fieldset{
+	border: none;
+}
+
+fieldset input,
+fieldset select{
+	width: 45%;
+	display: block;
+}
+
+.card-footer{
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+}
+
 .card-footer input,
 .card-footer select{
 	max-width: 120px;
