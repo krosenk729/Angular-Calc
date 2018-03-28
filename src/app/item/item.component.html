@@ -1,38 +1,34 @@
-<div class="col">
+<div class="col s12 m6">
 	<div class="card">
-		<div class="card-header">
+		<div class="card-content">
 			<h3 class="card-title">
 				<label for="item-name">Item One</label>
 				<input type="text" placeholder="name" id="item-name" [(ngModel)]="name" name="name">
 			</h3>
-		</div>
-		<div class="card-body">
-			<form id="item-1-form">
-				<fieldset class="form-group">
-					<label for="item-cost">Price</label>
-					<input type="number" class="form-control" id="item-cost" placeholder="0.00" min="0" max="100000" required [(ngModel)]="price" name="price" (change)="handleNewCalc($event)">
-				</fieldset>
-				<fieldset class="form-group">
-					<label for="item-size">Size</label>
-					<div class="input-group" id="item-size">
-						<input type="number" class="form-control" id="item-size" placeholder="28" required [(ngModel)]="qty" name="qty" (change)="handleNewCalc">
-						<select class="form-control" id="item-sizeunit"  aria-label="unit size" [(ngModel)]="unit" name="unit" (change)="handleNewCalc($event)">
-							<option *ngFor="let u of units" value="{{u.value}}">{{u.name}}</option>
-						</select>
-					</div>
-				</fieldset>
-			</form>
-		</div>
-		<div class="card-footer d-flex justify-content-between align-items-center" id="item-1-unit-cost">
-			<div>
-				${{ price / qty  | number:'1.2-2' }} per 1 {{ unit }}
-			</div>
-			<div *ngIf="unit != 'each'">
-				${{ calcPrice | number:'1.2-2' }} per 
-				<input type="number" class="form-control d-inline" id="item-size" placeholder="28" required [(ngModel)]="calcQty" name="calcQty" (change)="handleNewCalc($event)" />
-				<select class="form-control d-inline" id="item-sizeunit"  aria-label="unit size" [(ngModel)]="calcUnit" name="calcUnit" (change)="handleNewCalc($event)">
-					<option *ngFor="let u of units" value="{{u.value}}">{{u.name}}</option>
-				</select>
+			<fieldset class="form-group">
+				<label for="item-cost">Price</label>
+				<input type="number" class="form-control" id="item-cost" placeholder="0.00" min="0" max="100000" required [(ngModel)]="price" name="price" (change)="handleNewCalc($event)">
+			</fieldset>
+			<fieldset class="form-group">
+				<label for="item-size">Size</label>
+				<div class="input-group" id="item-size">
+					<input type="number" class="form-control" id="item-size" placeholder="28" required [(ngModel)]="qty" name="qty" (change)="handleNewCalc">
+					<select class="form-control" id="item-sizeunit"  aria-label="unit size" [(ngModel)]="unit" name="unit" (change)="handleNewCalc($event)">
+						<option *ngFor="let u of units" value="{{u.value}}">{{u.name}}</option>
+					</select>
+				</div>
+			</fieldset>
+			<div class="card-footer d-flex justify-content-between align-items-center" id="item-1-unit-cost">
+				<div>
+					${{ price / qty  | number:'1.2-2' }} per 1 {{ unit }}
+				</div>
+				<div *ngIf="unit != 'each'">
+					${{ calcPrice | number:'1.2-2' }} per 
+					<input type="number" class="form-control d-inline" id="item-size" placeholder="28" required [(ngModel)]="calcQty" name="calcQty" (change)="handleNewCalc($event)" />
+					<select class="form-control d-inline" id="item-sizeunit"  aria-label="unit size" [(ngModel)]="calcUnit" name="calcUnit" (change)="handleNewCalc($event)">
+						<option *ngFor="let u of units" value="{{u.value}}">{{u.name}}</option>
+					</select>
+				</div>
 			</div>
 		</div>
 	</div>
