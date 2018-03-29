@@ -3,11 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { DecimalPipe } from '@angular/common';
 
 @Component({
-	selector: 'app-item',
-	templateUrl: './item.component.html',
-	styleUrls: ['./item.component.css']
+	selector: 'app-item-price',
+	templateUrl: './item-price.component.html',
+	styleUrls: ['./item-price.component.css']
 })
-export class ItemComponent {
+export class ItemPriceComponent {
 	name: string;
 	price: number;
 	qty: number;

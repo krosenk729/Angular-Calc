@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { ItemComponent } from './item/item.component';
+import { ItemPriceComponent } from './item-price/item-price.component';
+import { ItemNutritionComponent } from './item-nutrition/item-nutrition.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { SingleComponent } from './single/single.component';
 import { DoubleComponent } from './double/double.component';
@@ -20,10 +21,11 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ItemComponent,
+    ItemPriceComponent,
     NavigationComponent,
     SingleComponent,
-    DoubleComponent
+    DoubleComponent,
+    ItemNutritionComponent
   ],
   imports: [
     BrowserModule,

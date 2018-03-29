@@ -1,13 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
-import { ItemComponent } from './item.component';
+import { ItemPriceComponent } from './item-price.component';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
 describe('ItemComponent', () => {
 
-  let component: ItemComponent;
-  let fixture: ComponentFixture<ItemComponent>;
+  let component: ItemPriceComponent;
+  let fixture: ComponentFixture<ItemPriceComponent>;
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
 
@@ -17,15 +17,15 @@ describe('ItemComponent', () => {
   beforeEach(async()=>{
     TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [ItemComponent]
+      declarations: [ItemPriceComponent]
     }).compileComponents();
   });
 
   // Initialize value of declared fixture, component variables
   beforeEach(()=>{
-    // create testing version of ItemComponent
+    // create testing version of ItemPriceComponent
     // and get instance of component
-    fixture = TestBed.createComponent(ItemComponent);
+    fixture = TestBed.createComponent(ItemPriceComponent);
     component = fixture.componentInstance;
 
     // detect changes since data will change in component over time 
