@@ -1,4 +1,25 @@
-.card-title{
+.card-footer{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.card-footer .rhs{
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.card-footer .rhs input,
+.card-footer .rhs select{
+	width: 28%;
+}
+
+fieldset{
+	border: none;
+}
+
+/*.card-title{
 	display: flex;
 	justify-content: space-between;
 }
@@ -11,9 +32,6 @@
 	overflow: auto;
 }
 
-fieldset{
-	border: none;
-}
 
 fieldset input,
 fieldset select{
@@ -34,4 +52,4 @@ fieldset select{
 
 .card{
 	max-width: 490px;
-}
+}*/
