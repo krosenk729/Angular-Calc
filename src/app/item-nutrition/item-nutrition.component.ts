@@ -6,8 +6,7 @@ import { ConversionService } from '../shared/conversion.service';
 
 @Component({
 	selector: 'app-item-nutrition',
-	templateUrl: './item-nutrition.component.html',
-	styleUrls: ['./item-nutrition.component.css']
+	templateUrl: './item-nutrition.component.html'
 })
 export class ItemNutritionComponent implements OnInit {
 	@Input() calcUnit: string;

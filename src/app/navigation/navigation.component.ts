@@ -4,8 +4,7 @@ import { UnitsService } from '../shared/units.service';
 
 @Component({
 	selector: 'app-navigation',
-	templateUrl: './navigation.component.html',
-	styleUrls: ['./navigation.component.css']
+	templateUrl: './navigation.component.html'
 })
 export class NavigationComponent implements OnInit {
 	@Output('newUnit') newUnit = new EventEmitter<string>();
