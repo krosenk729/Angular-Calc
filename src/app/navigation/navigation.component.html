@@ -1,4 +1,4 @@
-<div class="w-100 d-flex justify-content-end px-4">
+<div class="w-100 d-flex justify-content-end px-4 mb-2">
 	<div>
 		<select [(ngModel)]="calcUnit" (change)="emitNewUnit($event)" name="calcUnit">
 			<option *ngFor="let u of units" value="{{u.value}}">{{u.name}}</option>
