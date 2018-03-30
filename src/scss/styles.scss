@@ -1,0 +1,19 @@
+.center{
+	text-align: center;
+}
+
+.card-body{
+	label{
+		display: block;
+
+		&.lead{
+			display: inline;
+		}
+	}
+
+	input,
+	select{
+		width: 45%;
+		min-width: 30px;
+	}
+}

@@ -1,23 +1,20 @@
 <div class="card-body card-questions row">
-	<fieldset class="form-group col-12 col-sm-6">
+	<fieldset class="form-group col-12">
 		<label>Price</label>
 		<input type="number" name="price" [(ngModel)]="price" (change)="handleNewCalc" />
 	</fieldset>
-	<div class="col-12 col-sm-6">
+	<div class="col-12 per-row center">
 		per...
 	</div>
-	<fieldset class="form-group col-12 col-sm-6">
-		<label>Quantity</label>
+	<fieldset class="form-group col-12">
+		<label>Quantity / Units</label>
 		<input type="number" name="qty" [(ngModel)]="qty" (change)="handleNewCalc" />
-	</fieldset>
-	<fieldset class="form-group col-12 col-sm-6">
-		<label>Units</label>
 		<select name="unit" [(ngModel)]="unit" (change)="handleNewCalc">
-			<option *ngFor="let u of units" value="{{u.value}}">{{u.value}}</option>
+			<option *ngFor="let u of units" value="{{u.value}}">{{u.name}}</option>
 		</select>
 	</fieldset>
 </div>
-<div class="card-body card-calculations d-flex flex-column px-3">
+<div class="card-footer card-calculations d-flex flex-column px-3">
 	<div>
 		${{calcPrice | number:'1.2-2'}} per {{calcUnit}}
 	</div>

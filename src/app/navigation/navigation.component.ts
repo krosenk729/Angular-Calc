@@ -17,7 +17,7 @@ export class NavigationComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.units = this.unitService.getAllUnits();
+		this.units = this.unitService.getCalcUnits();
 		this.calcType = 'price';
 		this.calcUnit = 'g';
 		this.emitNewType(this.calcType);
