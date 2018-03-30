@@ -20,6 +20,8 @@ export class NavigationComponent implements OnInit {
 		this.units = this.unitService.getAllUnits();
 		this.calcType = 'price';
 		this.calcUnit = 'g';
+		this.emitNewType(this.calcType);
+		this.emitNewUnit(this.calcUnit);
 	}
 
 	emitNewUnit(event){

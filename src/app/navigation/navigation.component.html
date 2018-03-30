@@ -1,17 +1,15 @@
-<nav>
-	<div class="nav-wrapper">
-		<div>
-			<select [(ngModel)]="calcUnit" (change)="emitNewUnit($event)" name="calcUnit">
-				<option *ngFor="let u of units" value="{{u.value}}">{{u.name}}</option>
-			</select>
-		</div>
-		<div id="nav-mobile" class="right">
-			<label>Price
-				<input type="radio" name="type" value="price" [(ngModel)]="calcType" (change)="emitNewType($event)">
-			</label>
-			<label>Nutrition
-				<input type="radio" name="type" value="nutrition" [(ngModel)]="calcType" (change)="emitNewType($event)">
-			</label>
-		</div>
+<div class="w-100 d-flex justify-content-end px-4">
+	<div>
+		<select [(ngModel)]="calcUnit" (change)="emitNewUnit($event)" name="calcUnit">
+			<option *ngFor="let u of units" value="{{u.value}}">{{u.name}}</option>
+		</select>
 	</div>
-</nav>
+	<div id="nav-mobile" class="right">
+		<label>Price
+			<input type="radio" name="type" value="price" [(ngModel)]="calcType" (change)="emitNewType($event)">
+		</label>
+		<label>Nutrition
+			<input type="radio" name="type" value="nutrition" [(ngModel)]="calcType" (change)="emitNewType($event)">
+		</label>
+	</div>
+</div>
