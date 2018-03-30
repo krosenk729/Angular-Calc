@@ -3,6 +3,18 @@
 		<label>Calories</label>
 		<input type="number" name="calories" [(ngModel)]="calories" (change)="handleNewCalc" />
 	</fieldset>
+	<fieldset class="form-group col-12 col-sm-6">
+		<label>Fat</label>
+		<input type="number" name="fat" [(ngModel)]="fat" (change)="handleNewCalc" />
+	</fieldset>
+	<fieldset class="form-group col-12 col-sm-6">
+		<label>Carbs</label>
+		<input type="number" name="carbs" [(ngModel)]="carbs" (change)="handleNewCalc" />
+	</fieldset>
+	<fieldset class="form-group col-12 col-sm-6">
+		<label>Protein</label>
+		<input type="number" name="protein" [(ngModel)]="protein" (change)="handleNewCalc" />
+	</fieldset>
 	<div class="col-12 col-sm-6">
 		per...
 	</div>
@@ -20,5 +32,8 @@
 <div class="card-body card-calculations row">
 	<div>
 		{{calcCals | number:'1.2-2'}} calories per {{calcUnit}}
+	</div>
+	<div>
+		{{calcCals | number:'1.2-2'}} fat,  {{calcCarbs | number:'1.2-2'}} carbs,  {{calcProtein | number:'1.2-2'}} protein
 	</div>
 </div>

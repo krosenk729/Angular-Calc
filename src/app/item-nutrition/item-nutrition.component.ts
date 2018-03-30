@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DecimalPipe } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { UnitsService } from '../shared/units.service';
+import { ConversionService } from '../shared/conversion.service';
 
 @Component({
 	selector: 'app-item-nutrition',
@@ -9,61 +10,36 @@ import { ActivatedRoute, Router } from '@angular/router';
 	styleUrls: ['./item-nutrition.component.css']
 })
 export class ItemNutritionComponent implements OnInit {
+	@Input() calcUnit: string;
+
 	name: string;
-	cals: number = 0;
+	cals: number = 100;
+	fat: number = 8;
+	protein: number = 20;
+	carbs: number = 20;
 	serving: number = 40;
 	unit: string = 'g';
-	calcUnit: string;
 	calcCals: number;
-	units = [{
-		'value': 'g', 
-		'name': 'grams (g)'
-	},
-	{
-		'value': 'oz', 
-		'name': 'ounces (oz)'
-	},
-	{
-		'value': 'each', 
-		'name': 'units (items)'
-	},
-	{
-		'value': 'lbs', 
-		'name': 'pounds (lbs)'
-	}];
+	calcFat: number;
+	calcCarbs: number;
+	calcProtein: number;
+	units: any[];
 
-	constructor(private route: ActivatedRoute) {}
+	constructor(
+		private convert: ConversionService,
+		private unitService: UnitsService
+		) {}
 
 	ngOnInit(){
-		this.route.params.subscribe(params => {
-			this.calcUnit = params['unit'];
-
-			this.handleNewCalc();
-		});
+		this.units = this.unitService.getAllUnits();
+		this.handleNewCalc();
 	}
-
-	getConversion(startUnit, endUnit){
-		let conversionFactor = 1;
-		switch (startUnit) {
-			case 'g':
-				if(endUnit == 'oz') conversionFactor = 0.03527396
-				if(endUnit == 'lbs') conversionFactor = 0.00220462
-				break;
-			case 'oz':
-				if(endUnit == 'g') conversionFactor = 28.35
-				if(endUnit == 'lbs') conversionFactor = 0.0625
-				break;
-			case 'lbs':
-				if(endUnit == 'oz') conversionFactor = 16
-				if(endUnit == 'g') conversionFactor = 453.59237
-				break;
-			}
-			return conversionFactor;
-	}
-
+	
 	handleNewCalc(){
-		const cf = this.getConversion(this.unit, this.calcUnit);
-		this.calcCals = this.cals / this.serving * cf;
+		this.calcCals = this.convert.convertValue(this.unit, this.serving, this.cals, this.calcUnit);
+		this.calcFat = this.convert.convertValue(this.unit, this.serving, this.fat, this.calcUnit);
+		this.calcCarbs = this.convert.convertValue(this.unit, this.serving, this.carbs, this.calcUnit);
+		this.calcProtein = this.convert.convertValue(this.unit, this.serving, this.protein, this.calcUnit);
 	}
 
 }

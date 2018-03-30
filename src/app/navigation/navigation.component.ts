@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
-import { ActivatedRoute, Router } from '@angular/router';
-import { NavigationExtras } from '@angular/router';
+import { UnitsService } from '../shared/units.service';
 
 @Component({
 	selector: 'app-navigation',
@@ -9,37 +8,29 @@ import { NavigationExtras } from '@angular/router';
 	styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-	calcUnit: string = 'g';
-	currPage: string = 'price';
-	units = [{
-		'value': 'g', 
-		'name': 'grams (g)'
-	},
-	{
-		'value': 'oz', 
-		'name': 'ounces (oz)'
-	},
-	{
-		'value': 'each', 
-		'name': 'units (items)'
-	},
-	{
-		'value': 'lbs', 
-		'name': 'pounds (lbs)'
-	}];	
+	@Output('newUnit') newUnit = new EventEmitter<string>();
+	@Output('newType') newType = new EventEmitter<string>();
+	calcUnit: string;
+	calcType: string;
+	units: any[];	
 
-	constructor(private router: Router, private route: ActivatedRoute) {
-	}
-
-	newNav(){
-		this.router.navigate([this.currPage, this.calcUnit]);
-	}
-
-	newPage(newPage){
-		this.currPage = newPage;
+	constructor(private unitService: UnitsService) {
 	}
 
 	ngOnInit() {
+		this.units = this.unitService.getAllUnits();
+		this.calcType = 'price';
+		this.calcUnit = 'g';
 	}
 
+	emitNewUnit(event){
+		this.newUnit.emit(this.calcUnit);
+		console.log('nav component', this.calcUnit);
+	}
+	
+	emitNewType(event){
+		this.newType.emit(this.calcType);
+		console.log('nav component', this.calcType);
+	}
+	
 }

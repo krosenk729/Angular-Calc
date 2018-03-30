@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
 
 @Component({
@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 	styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
+	@Input() calcUnit: string;
+	@Input() calcType: string;
 	name: string;
 
 	constructor() { }

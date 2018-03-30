@@ -9,11 +9,14 @@ import { ItemComponent } from './item/item.component';
 import { ItemNutritionComponent } from './item-nutrition/item-nutrition.component';
 import { ItemPriceComponent } from './item-price/item-price.component';
 
-const appRoutes: Routes = [
-  {path: 'price/:unit', component: ItemPriceComponent},
-  {path: 'nutrition/:unit', component: ItemNutritionComponent},
-  {path: '**', redirectTo: 'price/g'}
-];
+import { UnitsService } from './shared/units.service';
+import { ConversionService } from './shared/conversion.service';
+
+// const appRoutes: Routes = [
+//   {path: 'price/:unit', component: ItemPriceComponent},
+//   {path: 'nutrition/:unit', component: ItemNutritionComponent},
+//   {path: '**', redirectTo: 'price/g'}
+// ];
 
 
 @NgModule({
@@ -27,9 +30,9 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule, 
-    RouterModule.forRoot(appRoutes)
+    // RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [UnitsService, ConversionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

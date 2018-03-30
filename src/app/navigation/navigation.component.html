@@ -1,13 +1,17 @@
 <nav>
 	<div class="nav-wrapper">
 		<div>
-			<select [(ngModel)]="calcUnit" (change)="newNav($event)" name="calcUnit">
+			<select [(ngModel)]="calcUnit" (change)="emitNewUnit($event)" name="calcUnit">
 				<option *ngFor="let u of units" value="{{u.value}}">{{u.name}}</option>
 			</select>
 		</div>
-		<ul id="nav-mobile" class="right">
-			<li><a [routerLink]="['/price/', calcUnit]" (click)="newPage('price')">Price </a></li>
-			<li><a [routerLink]="['/nutrition', calcUnit]" (click)="newPage('nutrition')">Nutrition</a></li>
-		</ul>
+		<div id="nav-mobile" class="right">
+			<label>Price
+				<input type="radio" name="type" value="price" [(ngModel)]="calcType" (change)="emitNewType($event)">
+			</label>
+			<label>Nutrition
+				<input type="radio" name="type" value="nutrition" [(ngModel)]="calcType" (change)="emitNewType($event)">
+			</label>
+		</div>
 	</div>
 </nav>

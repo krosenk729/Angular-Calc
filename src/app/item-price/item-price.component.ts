@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DecimalPipe } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { UnitsService } from '../shared/units.service';
+import { ConversionService } from '../shared/conversion.service';
 
 @Component({
 	selector: 'app-item-price',
@@ -9,61 +10,27 @@ import { ActivatedRoute, Router } from '@angular/router';
 	styleUrls: ['./item-price.component.css']
 })
 export class ItemPriceComponent implements OnInit {
+	@Input() calcUnit: string;
+
 	name: string;
 	price: number = 0;
 	qty: number = 1;
 	unit: string = 'g';
-	calcUnit: string;
 	calcPrice: number;
-	units = [{
-		'value': 'g', 
-		'name': 'grams (g)'
-	},
-	{
-		'value': 'oz', 
-		'name': 'ounces (oz)'
-	},
-	{
-		'value': 'each', 
-		'name': 'units (items)'
-	},
-	{
-		'value': 'lbs', 
-		'name': 'pounds (lbs)'
-	}];
+	units: any[];
 
-	constructor(private route: ActivatedRoute) {}
+	constructor(
+		private convert: ConversionService,
+		private unitService: UnitsService
+		) {}
 
 	ngOnInit(){
-		this.route.params.subscribe(params => {
-			this.calcUnit = params['unit'];
-
-			this.handleNewCalc();
-		});
-	}
-
-	getConversion(startUnit, endUnit){
-		let conversionFactor = 1;
-		switch (startUnit) {
-			case 'g':
-				if(endUnit == 'oz') conversionFactor = 0.03527396
-				if(endUnit == 'lbs') conversionFactor = 0.00220462
-				break;
-			case 'oz':
-				if(endUnit == 'g') conversionFactor = 28.35
-				if(endUnit == 'lbs') conversionFactor = 0.0625
-				break;
-			case 'lbs':
-				if(endUnit == 'oz') conversionFactor = 16
-				if(endUnit == 'g') conversionFactor = 453.59237
-				break;
-		}
-		return conversionFactor;
+		this.units = this.unitService.getAllUnits();
+		this.handleNewCalc();
 	}
 
 	handleNewCalc(){
-		const cf = this.getConversion(this.unit, this.calcUnit);
-		this.calcPrice = this.price / this.qty * cf;
+		this.calcPrice = this.convert.convertValue(this.unit, this.qty, this.price, this.calcUnit);
 	}
 
 }

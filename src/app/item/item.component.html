@@ -3,5 +3,6 @@
 		<label class="lead">Item:</label>
 		<input type="text" name="name">		
 	</div>
-	<router-outlet></router-outlet>
+	<app-item-nutrition *ngIf="calcType=='nutrition'" [calcUnit]="calcUnit"></app-item-nutrition>
+	<app-item-price *ngIf="calcType=='price'" [calcUnit]="calcUnit"></app-item-price>
 </div>

@@ -1,6 +1,7 @@
-<app-navigation></app-navigation>
+<app-navigation (newType)="newType($event)" (newUnit)="newUnit($event)"></app-navigation>
 <div class="container">
 	<div class="row">
-		<app-item></app-item>
+<!-- 		<app-item [calcUnit]="calcUnit" [calcType]="calcType"></app-item>
+		<app-item [calcUnit]="calcUnit" [calcType]="calcType"></app-item> -->
 	</div>
 </div>
