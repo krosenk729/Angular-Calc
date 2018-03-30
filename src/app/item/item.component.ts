@@ -14,7 +14,7 @@ export class ItemComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		console.log('item-component', this.calcUnit);
-		console.log('item-component', this.calcType);
+		console.log('item-component unit', this.calcUnit);
+		console.log('item-component type', this.calcType);
 	}
 }

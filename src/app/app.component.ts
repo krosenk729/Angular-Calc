@@ -10,12 +10,10 @@ export class AppComponent {
 	calcUnit: string;
 
 	constructor() {
-		this.calcType = 'price';
-		this.calcUnit = 'g'
 	}
 
 	newUnit(unit){
-		this.calcType = unit;
+		this.calcUnit = unit;
 		console.log('app component', unit);
 	}
 
