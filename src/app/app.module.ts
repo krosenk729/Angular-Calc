@@ -4,27 +4,24 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { ItemPriceComponent } from './item-price/item-price.component';
-import { ItemNutritionComponent } from './item-nutrition/item-nutrition.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { SingleComponent } from './single/single.component';
-import { DoubleComponent } from './double/double.component';
-
+import { ItemComponent } from './item/item.component';
+import { ItemNutritionComponent } from './item-nutrition/item-nutrition.component';
+import { ItemPriceComponent } from './item-price/item-price.component';
 
 const appRoutes: Routes = [
-  {path: 'single', component: SingleComponent},
-  {path: 'double', component: DoubleComponent},
-  {path: '**', redirectTo: 'single'}
+  {path: 'price/:unit', component: ItemPriceComponent},
+  {path: 'nutrition/:unit', component: ItemNutritionComponent},
+  {path: '**', redirectTo: 'price/g'}
 ];
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemPriceComponent,
     NavigationComponent,
-    SingleComponent,
-    DoubleComponent,
+    ItemComponent,
+    ItemPriceComponent,
     ItemNutritionComponent
   ],
   imports: [

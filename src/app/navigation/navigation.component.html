@@ -1,9 +1,13 @@
-  <nav>
-  	<div class="nav-wrapper">
-  		<div class="brand-logo">Price Comparer</div>
-  		<ul id="nav-mobile" class="right">
-  			<li><a routerLink="/single">Single</a></li>
-  			<li><a routerLink="/double">Double</a></li>
-  		</ul>
-  	</div>
-  </nav>
+<nav>
+	<div class="nav-wrapper">
+		<div>
+			<select [(ngModel)]="calcUnit" (change)="newNav($event)" name="calcUnit">
+				<option *ngFor="let u of units" value="{{u.value}}">{{u.name}}</option>
+			</select>
+		</div>
+		<ul id="nav-mobile" class="right">
+			<li><a [routerLink]="['/price/', calcUnit]" (click)="newPage('price')">Price </a></li>
+			<li><a [routerLink]="['/nutrition', calcUnit]" (click)="newPage('nutrition')">Nutrition</a></li>
+		</ul>
+	</div>
+</nav>

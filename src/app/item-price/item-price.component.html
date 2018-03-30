@@ -1,35 +1,24 @@
-<div class="card">
-	<div class="card-content">
-		<fieldset class="row">
-			<label class="col s6" for="item-name">
-				Item Name:
-			<input type="text" placeholder="name" id="item-name" [(ngModel)]="name" name="name" />
-			</label>
-			<label class="col s6" for="item-cost">Price
-			<input type="number" class="form-control" id="item-cost" placeholder="0.00" min="0" max="100000" required [(ngModel)]="price" name="price" (change)="handleNewCalc($event)" />
-			</label>
-		</fieldset>
-		<fieldset class="row">
-			<label for="item-size" class="col s6">Size
-			<input type="number" id="item-size" placeholder="28" required [(ngModel)]="qty" name="qty" (change)="handleNewCalc">
-			</label>
-			<label class="col s6">
-			<select class="browser-default" id="item-sizeunit"  aria-label="unit size" [(ngModel)]="unit" name="unit" (change)="handleNewCalc($event)">
-				<option *ngFor="let u of units" value="{{u.value}}">{{u.name}}</option>
-			</select>
-			</label>
-		</fieldset>
-		<div class="card-action card-footer row">
-			<div class="lhs">
-				${{ price / qty  | number:'1.2-2' }} per 1 {{ unit }}
-			</div>
-			<div *ngIf="unit != 'each'" class="rhs">
-				${{ calcPrice | number:'1.2-2' }} per 
-				<input type="number" id="item-size" placeholder="28" required [(ngModel)]="calcQty" name="calcQty" (change)="handleNewCalc($event)" />
-				<select  class="browser-default" id="item-sizeunit"  aria-label="unit size" [(ngModel)]="calcUnit" name="calcUnit" (change)="handleNewCalc($event)">
-					<option *ngFor="let u of units" value="{{u.value}}">{{u.value}}</option>
-				</select>
-			</div>
-		</div>
+<div class="card-body card-questions row">
+	<fieldset class="form-group col-12 col-sm-6">
+		<label>Price</label>
+		<input type="number" name="price" [(ngModel)]="price" (change)="handleNewCalc" />
+	</fieldset>
+	<div class="col-12 col-sm-6">
+		per...
+	</div>
+	<fieldset class="form-group col-12 col-sm-6">
+		<label>Quantity</label>
+		<input type="number" name="qty" [(ngModel)]="qty" (change)="handleNewCalc" />
+	</fieldset>
+	<fieldset class="form-group col-12 col-sm-6">
+		<label>Units</label>
+		<select name="unit" [(ngModel)]="unit" (change)="handleNewCalc">
+			<option *ngFor="let u of units" value="{{u.value}}">{{u.value}}</option>
+		</select>
+	</fieldset>
+</div>
+<div class="card-body card-calculations row">
+	<div>
+		${{calcPrice | number:'1.2-2'}} per {{calcUnit}}
 	</div>
 </div>
