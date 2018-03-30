@@ -9,7 +9,10 @@ export class AppComponent {
 	calcType: string;
 	calcUnit: string;
 
-	constructor() { }
+	constructor() {
+		this.calcType = 'price';
+		this.calcUnit = 'g'
+	}
 
 	newUnit(unit){
 		this.calcType = unit;

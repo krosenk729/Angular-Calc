@@ -26,6 +26,7 @@ export class ItemPriceComponent implements OnInit {
 	ngOnInit(){
 		this.units = this.unitService.getAllUnits();
 		this.handleNewCalc();
+		console.log('item-price', this.calcUnit);
 	}
 
 	handleNewCalc(){

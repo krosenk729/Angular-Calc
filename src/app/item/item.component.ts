@@ -10,8 +10,11 @@ export class ItemComponent implements OnInit {
 	@Input() calcType: string;
 	name: string;
 
-	constructor() { }
+	constructor() {
+	}
 
 	ngOnInit() {
+		console.log('item-component', this.calcUnit);
+		console.log('item-component', this.calcType);
 	}
 }
