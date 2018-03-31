@@ -1,4 +1,12 @@
 <div class="card-body card-questions row">
+	<fieldset class="float-label-wrap double">
+		<input type="number" name="serving" id="serving-item-{{itemNo}}" [(ngModel)]="serving" (change)="handleNewCalc($event)" />
+		<select name="unit" [(ngModel)]="unit" (change)="handleNewCalc($event)">
+			<option *ngFor="let u of units" value="{{u.value}}">{{u.value}}</option>
+		</select>
+		<label for="serving-item-{{itemNo}}">Serving Size / Units</label>
+	</fieldset>
+	<div class="per-row-wrap"></div>
 	<fieldset class="float-label-wrap half">
 		<input type="number" name="cals" id="cals-item-{{itemNo}}" [(ngModel)]="cals" (change)="handleNewCalc($event)" />
 		<label for="cals-item-{{itemNo}}">Calories</label>
@@ -15,18 +23,10 @@
 		<input type="number" name="protein" id="protein-item-{{itemNo}}" [(ngModel)]="protein" (change)="handleNewCalc($event)" />
 		<label for="protein-item-{{itemNo}}">Protein</label>
 	</fieldset>
-	<div class="per-row-wrap"></div>
-	<fieldset class="float-label-wrap double">
-		<input type="number" name="serving" id="serving-item-{{itemNo}}" [(ngModel)]="serving" (change)="handleNewCalc($event)" />
-		<select name="unit" [(ngModel)]="unit" (change)="handleNewCalc($event)">
-			<option *ngFor="let u of units" value="{{u.value}}">{{u.value}}</option>
-		</select>
-		<label for="serving-item-{{itemNo}}">Serving Size / Units</label>
-	</fieldset>
 </div>
 <div class="card-footer card-calculations d-flex flex-column px-3">
 	<div>
-		{{calcCals | number:'1.2-2'}} calories per {{calcUnit}}
+		<span class="styled">{{calcCals | number:'1.2-2'}}</span> calories per {{calcUnit}}
 	</div>
 	<div class="lighter">
 		{{calcFat | number:'1.2-2'}} fat,  {{calcCarbs | number:'1.2-2'}} carbs,  {{calcProtein | number:'1.2-2'}} protein

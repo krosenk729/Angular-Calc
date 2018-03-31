@@ -48,6 +48,10 @@ body{
 	color: lighten($c-grey-m, 10%);
 }
 
+.styled{
+	border-bottom: 2px solid $c-blue-d;
+}
+
 .center{
 	text-align: center;
 }
