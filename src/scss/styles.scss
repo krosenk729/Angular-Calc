@@ -74,7 +74,7 @@ body{
 
 	display: flex;
 	justify-content: center;
-	@include boxshadow();
+	@include boxshadow($vert: 5px);
 
 	& > div {
 		flex-basis: 50%;
@@ -172,7 +172,7 @@ input::-webkit-inner-spin-button {
 
 		&:focus{
 			border-bottom-color: $c-green;
-			color: darken($c-green, 5%);
+			color: darken($c-green, 10%);
 		}
 	}
 
