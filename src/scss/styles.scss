@@ -1,3 +1,59 @@
+$c-blue-d: #182e4b;
+$c-green: #66d795;
+$c-pink: #f05538;
+$c-peach: #FFDBC7;
+$c-grey-l: #ebebeb;
+$c-grey-m: #8c8a8a;
+$c-grey-d: #242221;
+$c-white: #FFFFFF;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,500,900');
+
+// ==================================================
+// Mixins
+
+@mixin transition($which: all, $time: 1s, $how: ease-in-out){
+	-webkit-transition: $which $time $how;
+	-moz-transition: $which $time $how;
+	-ms-transition: $which $time $how;
+	-o-transition: $which $time $how;
+	transition: $which $time $how;
+}
+
+@mixin gradient-bg($left, $right: darken($left, 25%)){
+	background: $left; // backup
+	background: -webkit-linear-gradient($left, $right);
+	background: -o-linear-gradient($left, $right);
+	background: -moz-linear-gradient($left, $right);
+	background: linear-gradient($left, $right);
+}
+
+// ==================================================
+// Layout & Resets
+
+body{
+	background: $c-peach;
+	color: $c-blue-d;
+}
+
+.app-nav{
+	width: 100%;
+	background: $c-white;
+	border-bottom: 8px solid $c-green;
+	margin-bottom: 1.5em;
+	padding: 1em 1.5em;
+
+	display: flex;
+	justify-content: center;
+
+	& > div {
+		flex-basis: 50%;
+
+		select{ width: 85% }
+		label{ width: 45% }
+	}
+}
+
 .center{
 	text-align: center;
 }
