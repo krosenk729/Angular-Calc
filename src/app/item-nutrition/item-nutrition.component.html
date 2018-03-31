@@ -1,24 +1,24 @@
 <div class="card-body card-questions row">
 	<fieldset class="float-label-wrap half">
-		<input type="number" name="cals" id="cals-item-{{itemNo}}" [(ngModel)]="cals" (change)="handleNewCalc" />
+		<input type="number" name="cals" id="cals-item-{{itemNo}}" [(ngModel)]="cals" (change)="handleNewCalc($event)" />
 		<label for="cals-item-{{itemNo}}">Calories</label>
 	</fieldset>
 	<fieldset class="float-label-wrap half">
-		<input type="number" name="fat" id="fat-item-{{itemNo}}" [(ngModel)]="fat" (change)="handleNewCalc" />
+		<input type="number" name="fat" id="fat-item-{{itemNo}}" [(ngModel)]="fat" (change)="handleNewCalc($event)" />
 		<label for="fat-item-{{itemNo}}">Fat</label>
 	</fieldset>
 	<fieldset class="float-label-wrap half">
-		<input type="number" name="carbs" id="carbs-item-{{itemNo}}" [(ngModel)]="carbs" (change)="handleNewCalc" />
+		<input type="number" name="carbs" id="carbs-item-{{itemNo}}" [(ngModel)]="carbs" (change)="handleNewCalc($event)" />
 		<label for="carbs-item-{{itemNo}}">Carbs</label>
 	</fieldset>
 	<fieldset class="float-label-wrap half">
-		<input type="number" name="protein" id="protein-item-{{itemNo}}" [(ngModel)]="protein" (change)="handleNewCalc" />
+		<input type="number" name="protein" id="protein-item-{{itemNo}}" [(ngModel)]="protein" (change)="handleNewCalc($event)" />
 		<label for="protein-item-{{itemNo}}">Protein</label>
 	</fieldset>
 	<div class="per-row-wrap"></div>
 	<fieldset class="float-label-wrap double">
-		<input type="number" name="serving" id="serving-item-{{itemNo}}" [(ngModel)]="serving" (change)="handleNewCalc" />
-		<select name="unit" [(ngModel)]="unit" (change)="handleNewCalc">
+		<input type="number" name="serving" id="serving-item-{{itemNo}}" [(ngModel)]="serving" (change)="handleNewCalc($event)" />
+		<select name="unit" [(ngModel)]="unit" (change)="handleNewCalc($event)">
 			<option *ngFor="let u of units" value="{{u.value}}">{{u.value}}</option>
 		</select>
 		<label for="serving-item-{{itemNo}}">Serving Size / Units</label>

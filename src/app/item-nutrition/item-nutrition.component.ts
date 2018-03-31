@@ -31,11 +31,12 @@ export class ItemNutritionComponent implements OnInit {
 		) {}
 
 	ngOnInit(){
-		this.units = this.unitService.getAllUnits();
+		this.units = this.unitService.getCalcUnits();
 		this.handleNewCalc();
 	}
 	
 	handleNewCalc(){
+		console.log('handling a new calc...');
 		this.calcCals = this.convert.convertValue(this.unit, this.serving, this.cals, this.calcUnit);
 		this.calcFat = this.convert.convertValue(this.unit, this.serving, this.fat, this.calcUnit);
 		this.calcCarbs = this.convert.convertValue(this.unit, this.serving, this.carbs, this.calcUnit);
