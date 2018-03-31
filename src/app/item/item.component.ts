@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 export class ItemComponent implements OnInit {
 	@Input() calcUnit: string;
 	@Input() calcType: string;
+	@Input() itemNo: string;
 	name: string;
 
 	constructor() {

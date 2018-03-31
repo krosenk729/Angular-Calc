@@ -7,10 +7,19 @@ $c-grey-m: #8c8a8a;
 $c-grey-d: #242221;
 $c-white: #FFFFFF;
 
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,500,900');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+* {
+	font-family: Lato;
+	color: $c-blue-d;
+}
 
 // ==================================================
 // Mixins
+
+@mixin boxshadow($horiz: 0, $vert: 2px, $blur: 5px, $col: rgba(0, 0, 0, 0.26)){
+	-webkit-box-shadow: $horiz $vert $blur $col;
+	box-shadow: $horiz $vert $blur $col;
+}
 
 @mixin transition($which: all, $time: 1s, $how: ease-in-out){
 	-webkit-transition: $which $time $how;
@@ -29,12 +38,17 @@ $c-white: #FFFFFF;
 }
 
 // ==================================================
-// Layout & Resets
+// Utils
 
 body{
 	background: $c-peach;
-	color: $c-blue-d;
 }
+.center{
+	text-align: center;
+}
+
+// ==================================================
+// Nav
 
 .app-nav{
 	width: 100%;
@@ -45,18 +59,39 @@ body{
 
 	display: flex;
 	justify-content: center;
+	@include boxshadow();
 
 	& > div {
 		flex-basis: 50%;
 
-		select{ width: 85% }
-		label{ width: 45% }
+		select{ 
+			width: 85%;
+			border: 2px solid $c-grey-l;
+			border-radius: 8px;
+			padding: 5px;
+		}
+		label{ 
+			width: 45%
+		}
 	}
 }
 
-.center{
-	text-align: center;
+
+// ==================================================
+// Card
+
+.card,
+.card-header,
+.card-footer{
+	background: $c-white;
+	border: none;
+	border-radius: 0;
 }
+
+.card{
+	@include boxshadow;
+}
+
 
 .card-body{
 	label{
@@ -73,3 +108,14 @@ body{
 		min-width: 30px;
 	}
 }
+
+
+// ==================================================
+// Floating Labels
+
+
+// ==================================================
+// Radio Buttons into Toggle Buttons
+
+
+

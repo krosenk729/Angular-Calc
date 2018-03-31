@@ -1,7 +1,7 @@
 <div class="card">
 	<div class="card-header">
-		<label class="lead">Item:</label>
-		<input type="text" name="name">		
+		<label class="lead" for="first-thing">Item:</label>
+		<input type="text" name="name" id="first-thing">		
 	</div>
 	<app-item-nutrition *ngIf="calcType=='nutrition'" [calcUnit]="calcUnit"></app-item-nutrition>
 	<app-item-price *ngIf="calcType=='price'" [calcUnit]="calcUnit"></app-item-price>
