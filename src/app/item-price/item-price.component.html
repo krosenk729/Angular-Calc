@@ -1,14 +1,14 @@
 <div class="card-body card-questions row">
-	<fieldset class="form-group col-12">
-		<label>Price</label>
-		<input type="number" name="price" [(ngModel)]="price" (change)="handleNewCalc" />
+	<fieldset class="float-label-wrap">
+		<input type="number" name="price" id="price-item-{{itemNo}}" [(ngModel)]="price" (change)="handleNewCalc" />
+		<label for="price-item-{{itemNo}}">Price</label>
 	</fieldset>
-	<div class="col-12 per-row center">
+	<div class="per-row-wrap">
 		per...
 	</div>
-	<fieldset class="form-group col-12">
-		<label>Quantity / Units</label>
-		<input type="number" name="qty" [(ngModel)]="qty" (change)="handleNewCalc" />
+	<fieldset class="float-label-wrap">
+		<input type="number" name="qty" id="qty-item-{{itemNo}}" [(ngModel)]="qty" (change)="handleNewCalc" />
+		<label for="qty-item-{{itemNo}}">Quantity / Units</label>
 		<select name="unit" [(ngModel)]="unit" (change)="handleNewCalc">
 			<option *ngFor="let u of units" value="{{u.value}}">{{u.name}}</option>
 		</select>

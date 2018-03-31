@@ -1,26 +1,26 @@
 <div class="card-body card-questions row">
-	<fieldset class="form-group col-12 col-sm-6">
-		<label>Calories</label>
-		<input type="number" name="calories" [(ngModel)]="calories" (change)="handleNewCalc" />
+	<fieldset class="float-label-wrap col-12 col-sm-6">
+		<input type="number" name="calories" id="calories-item-{{itemNo}}" [(ngModel)]="calories" (change)="handleNewCalc" />
+		<label for="calories-item-{{itemNo}}">Calories</label>
 	</fieldset>
-	<fieldset class="form-group col-12 col-sm-6">
-		<label>Fat</label>
-		<input type="number" name="fat" [(ngModel)]="fat" (change)="handleNewCalc" />
+	<fieldset class="float-label-wrap col-12 col-sm-6">
+		<input type="number" name="fat" id="fat-item-{{itemNo}}" [(ngModel)]="fat" (change)="handleNewCalc" />
+		<label for="fat-item-{{itemNo}}">Fat</label>
 	</fieldset>
-	<fieldset class="form-group col-12 col-sm-6">
-		<label>Carbs</label>
-		<input type="number" name="carbs" [(ngModel)]="carbs" (change)="handleNewCalc" />
+	<fieldset class="float-label-wrap col-12 col-sm-6">
+		<input type="number" name="carbs" id="carbs-item-{{itemNo}}" [(ngModel)]="carbs" (change)="handleNewCalc" />
+		<label for="carbs-item-{{itemNo}}">Carbs</label>
 	</fieldset>
-	<fieldset class="form-group col-12 col-sm-6">
-		<label>Protein</label>
-		<input type="number" name="protein" [(ngModel)]="protein" (change)="handleNewCalc" />
+	<fieldset class="float-label-wrap col-12 col-sm-6">
+		<input type="number" name="protein" id="protein-item-{{itemNo}}" [(ngModel)]="protein" (change)="handleNewCalc" />
+		<label for="protein-item-{{itemNo}}">Protein</label>
 	</fieldset>
-	<div class="col-12 per-row center">
+	<div class="per-row-wrap">
 		per...
 	</div>
-	<fieldset class="form-group col-12">
-		<label>Serving Size / Units</label>
-		<input type="number" name="serving" [(ngModel)]="serving" (change)="handleNewCalc" />
+	<fieldset class="float-label-wrap">
+		<input type="number" name="serving" id="serving-item-{{itemNo}}" [(ngModel)]="serving" (change)="handleNewCalc" />
+		<label for="serving-item-{{itemNo}}">Serving Size / Units</label>
 		<select name="unit" [(ngModel)]="unit" (change)="handleNewCalc">
 			<option *ngFor="let u of units" value="{{u.value}}">{{u.value}}</option>
 		</select>
