@@ -17,7 +17,7 @@ export class ConversionService {
 				break;
 			case 'oz':
 				if(endUnit == 'g') conversionFactor = 28.35
-				if(endUnit == 'lbs') conversionFactor = 0.0625
+				if(endUnit == 'lbs') conversionFactor = 1/16
 				break;
 			case 'lbs':
 				if(endUnit == 'oz') conversionFactor = 16
@@ -35,7 +35,7 @@ export class ConversionService {
 		endQty: number = 1
 		): number{
 			const conversionFactor = this.getConversion(startUnit, endUnit);
-			return startValue / startQty * endQty * conversionFactor;
+			return startValue / startQty * endQty / conversionFactor;
 	}
 
 }
