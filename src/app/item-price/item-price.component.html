@@ -1,6 +1,6 @@
 <div class="card-body card-questions row">
 	<fieldset class="float-label-wrap">
-		<input type="number" name="price" id="price-item-{{itemNo}}" [(ngModel)]="price" (change)="handleNewCalc($event)" />
+		<input type="number" name="price" step="0.01" min="0" id="price-item-{{itemNo}}" [(ngModel)]="price" (change)="handleNewCalc($event)" />
 		<label for="price-item-{{itemNo}}">Price</label>
 	</fieldset>
 	<div class="per-row-wrap">

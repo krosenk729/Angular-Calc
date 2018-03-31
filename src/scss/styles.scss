@@ -45,7 +45,7 @@ body{
 }
 
 .lighter{
-	color: $c-grey-m;
+	color: lighten($c-grey-m, 10%);
 }
 
 .center{
@@ -118,6 +118,10 @@ body{
 	border-top: 2px solid $c-pink;
 	color: $c-grey-d;
 	text-align: center;
+
+	& > div:first-of-type{
+		padding-bottom: 1em;
+	}
 }
 .card{
 	@extend %nobackground;
@@ -173,6 +177,12 @@ input::-webkit-inner-spin-button {
 		&:focus{
 			border-bottom-color: $c-green;
 			color: darken($c-green, 10%);
+		}
+
+		&:invalid,
+		&.ng-invalid{
+			border-bottom-color: $c-pink;
+			color: darken($c-pink, 10%);
 		}
 	}
 

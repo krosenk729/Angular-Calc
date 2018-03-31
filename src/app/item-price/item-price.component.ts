@@ -13,7 +13,7 @@ export class ItemPriceComponent implements OnInit {
 	@Input() itemNo: string;
 
 	name: string;
-	price: number = 0;
+	price: number = 1;
 	qty: number = 1;
 	unit: string = 'g';
 	calcPrice: number;
