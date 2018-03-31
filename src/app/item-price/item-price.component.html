@@ -6,7 +6,7 @@
 	<div class="per-row-wrap">
 	</div>
 	<fieldset class="float-label-wrap double">
-		<input type="number" name="qty" id="qty-item-{{itemNo}}" [(ngModel)]="qty" (change)="handleNewCalc($event)" />
+		<input type="number" name="qty" step="0.01" id="qty-item-{{itemNo}}" [(ngModel)]="qty" (change)="handleNewCalc($event)" />
 		<select name="unit" [(ngModel)]="unit" (change)="handleNewCalc($event)">
 			<option *ngFor="let u of units" value="{{u.value}}">{{u.name}}</option>
 		</select>
