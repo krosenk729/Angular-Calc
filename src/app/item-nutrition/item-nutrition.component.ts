@@ -10,6 +10,7 @@ import { ConversionService } from '../shared/conversion.service';
 })
 export class ItemNutritionComponent implements OnInit {
 	@Input() calcUnit: string;
+	@Input() itemNo: string;
 
 	name: string;
 	cals: number = 100;

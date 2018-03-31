@@ -10,6 +10,7 @@ import { ConversionService } from '../shared/conversion.service';
 })
 export class ItemPriceComponent implements OnInit {
 	@Input() calcUnit: string;
+	@Input() itemNo: string;
 
 	name: string;
 	price: number = 0;
