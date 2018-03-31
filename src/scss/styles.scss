@@ -7,7 +7,7 @@ $c-grey-m: #8c8a8a;
 $c-grey-d: #242221;
 $c-white: #FFFFFF;
 
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,900');
 * {
 	font-family: Lato;
 	color: $c-blue-d;
@@ -83,30 +83,43 @@ body{
 %nobackground{
 	background: $c-white;
 	border: none;
-	border-radius: 0;
+	border-radius: 0 !important;
 }
 
-.card-header,
-.card-footer{
-	@extend %nobackground;
+.card-header{
+	@extend %nobackground; // to keep padding and border width the same
+	background: $c-grey-l;
 	padding: 2em;
+	@include boxshadow;
 }
 
 .card-body{
 	padding: 2.55em;
 }
 
+.card-footer{
+	@extend %nobackground;
+	padding: .5em 2em 2em 2em;
+	border-top: 2px solid $c-pink;
+	color: $c-grey-d;
+	text-align: center;
+}
 .card{
 	@extend %nobackground;
 	@include boxshadow;
+	margin-bottom: 2em;
 }
 
 .per-row-wrap{
 	width: 100%;
 	position: relative;
-	padding: 1em;
+	padding: 0 1em 1em 1em;
 	margin: 1em auto;
 	text-align: center;
+
+	text-transform: uppercase;
+	color: $c-pink;
+	font-weight: 900;
 }
 
 
@@ -147,6 +160,8 @@ body{
 			top: 0;
 			left: 50%;
 			width: 45%;
+			padding: 4px;
+			border: 1px solid $c-grey-l;
 		}
 	}
 
@@ -163,6 +178,7 @@ body{
 	}
 
 	input:focus ~ label,
+	select:focus ~ label,
 	input:not(:placeholder-shown) ~ label{
 		transform: translateX(-2px) translateY(-20px) scale(0.8);
 		transform-origin: left top;
