@@ -6,12 +6,12 @@
 	<div class="per-row-wrap">
 		per...
 	</div>
-	<fieldset class="float-label-wrap">
+	<fieldset class="float-label-wrap double">
 		<input type="number" name="qty" id="qty-item-{{itemNo}}" [(ngModel)]="qty" (change)="handleNewCalc" />
-		<label for="qty-item-{{itemNo}}">Quantity / Units</label>
 		<select name="unit" [(ngModel)]="unit" (change)="handleNewCalc">
 			<option *ngFor="let u of units" value="{{u.value}}">{{u.name}}</option>
 		</select>
+		<label for="qty-item-{{itemNo}}">Quantity / Units</label>
 	</fieldset>
 </div>
 <div class="card-footer card-calculations d-flex flex-column px-3">

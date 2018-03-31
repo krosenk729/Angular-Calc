@@ -21,7 +21,7 @@ $c-white: #FFFFFF;
 	box-shadow: $horiz $vert $blur $col;
 }
 
-@mixin transition($which: all, $time: 1s, $how: ease-in-out){
+@mixin transition($which: all, $time: 0.5s, $how: ease){
 	-webkit-transition: $which $time $how;
 	-moz-transition: $which $time $how;
 	-ms-transition: $which $time $how;
@@ -80,33 +80,33 @@ body{
 // ==================================================
 // Card
 
-.card,
-.card-header,
-.card-footer{
+%nobackground{
 	background: $c-white;
 	border: none;
 	border-radius: 0;
 }
 
+.card-header,
+.card-footer{
+	@extend %nobackground;
+	padding: 2em;
+}
+
+.card-body{
+	padding: 2.55em;
+}
+
 .card{
+	@extend %nobackground;
 	@include boxshadow;
 }
 
-
-.card-body{
-	label{
-		display: block;
-
-		&.lead{
-			display: inline;
-		}
-	}
-
-	input,
-	select{
-		width: 45%;
-		min-width: 30px;
-	}
+.per-row-wrap{
+	width: 100%;
+	position: relative;
+	padding: 1em;
+	margin: 1em auto;
+	text-align: center;
 }
 
 
@@ -114,8 +114,187 @@ body{
 // Floating Labels
 
 
+.float-label-wrap{
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+	padding: 1em;
+
+	input{
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		z-index: 1;
+		width: 100%;
+		height: 30px;
+		background: transparent;
+		border: none;
+		border-bottom: 2px solid $c-blue-d;
+
+		&:focus{
+			border-bottom-color: $c-green;
+		}
+	}
+
+	&.double{
+		input{
+			width: 45%;
+		}
+
+		select{
+			position: absolute;
+			top: 0;
+			left: 50%;
+			width: 45%;
+		}
+	}
+
+	label{
+		position: absolute;
+		pointer-events: none;
+		top: 0px;
+		left: 0px;
+		@include transition;
+	}
+
+	input:focus ~ label{
+		color: $c-green;
+	}
+
+	input:focus ~ label,
+	input:not(:placeholder-shown) ~ label{
+		transform: translateX(-2px) translateY(-20px) scale(0.8);
+		transform-origin: left top;
+	}
+}
+
 // ==================================================
 // Radio Buttons into Toggle Buttons
 
 
 
+
+// **************************************************************/
+// Custom Controls
+// **************************************************************/
+/* 
+%hidden-element{
+	position: absolute;
+	clip: rect(0, 0, 0, 0);
+	z-index: -1;
+	opacity: 0;
+	border: 0;
+	overflow: hidden;
+}
+
+.custom-control-inline.custom-radio-switch{
+	input{
+		@extend %hidden-element;
+
+		&:checked + label {
+			@include gradient-bg($c-purple-d);
+			color: $c-white;
+			-webkit-box-shadow: none;
+			box-shadow: none;
+		}
+
+		&:checked + label:nth-of-type(3n+3) {
+			@include gradient-bg($c-aqua-d);
+			color: white;
+			-webkit-box-shadow: none;
+			box-shadow: none;
+		}
+	}
+
+	label {
+		float: left;
+		display: inline-block;
+		width: 120px;
+		margin-bottom: 2em;
+		@include gradient-bg($c-grey-l);
+		color: rgba(0, 0, 0, 0.6);
+		font-size: 14px;
+		font-weight: normal;
+		text-align: center;
+		text-shadow: none;
+		padding: 1em 1.5em;
+		// border: 1px solid rgba(0, 0, 0, 0.2);
+		@include transition($time: 0.1s);
+		@include boxshadow();
+
+		&:hover {
+			cursor: pointer;
+			@include gradient-bg($c-grey-d);
+			color: $c-white;
+		}
+
+		// left pill
+		&:first-of-type {
+			border-radius: 4px 0 0 4px;
+		}
+
+		// right pill
+		&:last-of-type {
+			border-radius: 0 4px 4px 0;
+		}
+	}
+} 
+
+.control.control-radio{
+	position: relative;
+	cursor: pointer;
+	padding: .25em 1.75em;
+	margin: .25em 1.25em;
+
+	input{
+		@extend %hidden-element;
+	}
+
+	.control-indicator{
+		position: absolute;
+		top: 15%;
+		left: 0;
+		width: 24px;
+		height: 24px;
+		padding: 0;
+		text-align: center;
+		background: $c-grey-l;
+		border-radius: 100%;
+	}
+
+	// hover state
+	&:hover input ~ .control-indicator,
+	input:focus ~ .control-indicator{
+		background: $c-grey-d;
+	}
+
+	// checked
+	input:checked ~ .control-indicator{
+		background: $c-aqua-l;
+		color: $c-blackish;
+		// inner circle
+		// &:after{
+		// 	position: absolute;
+		// 	content: ' ';
+		// 	top: 25%;
+		// 	left: 25%;
+		// 	width: 12px;
+		// 	height: 12px;
+		// 	border-radius: 100%;
+		// 	background: $c-white;
+		// }
+	}
+
+	// not checked
+	input:not(checked) + .control-indicator{
+		color: transparent;
+	}
+
+	// checked hover state
+	&:hover input:not([disabled]):checked ~ .control-indicator,
+	input:checked:focus ~ .control-indicator{
+		background: $c-aqua-d;
+	}
+}
+ */
