@@ -93,12 +93,9 @@ body{
 			width: 45%
 		}
 	}
-}
 
-@media screen and (max-width: 490px) {
-	.app-nav{
+	@media screen and (max-width: 490px) {
 		flex-wrap: wrap;
-
 		& > div {
 			flex-basis: 100%;
 
@@ -108,6 +105,8 @@ body{
 		}
 	}
 }
+
+
 
 // ==================================================
 // Card
@@ -291,4 +290,15 @@ input::-webkit-inner-spin-button {
 			transform: scale(1.15);
 		}
 	}
+}
+
+// ==================================================
+// Background
+
+.svg-bg{
+	position: fixed;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	overflow: hidden;
 }
