@@ -95,6 +95,19 @@ body{
 	}
 }
 
+@media screen and (max-width: 490px) {
+	.app-nav{
+		flex-wrap: wrap;
+
+		& > div {
+			flex-basis: 100%;
+
+			&:first-of-type{
+				margin-bottom: 1em;
+			}
+		}
+	}
+}
 
 // ==================================================
 // Card
@@ -238,12 +251,6 @@ input::-webkit-inner-spin-button {
 // Radio Buttons into Toggle Buttons
 
 
-
-
-// **************************************************************/
-// Custom Controls
-// **************************************************************/
-/* 
 %hidden-element{
 	position: absolute;
 	clip: rect(0, 0, 0, 0);
@@ -253,20 +260,13 @@ input::-webkit-inner-spin-button {
 	overflow: hidden;
 }
 
-.custom-control-inline.custom-radio-switch{
+.radio-switch{
 	input{
 		@extend %hidden-element;
 
 		&:checked + label {
-			@include gradient-bg($c-purple-d);
+			background: $c-pink;
 			color: $c-white;
-			-webkit-box-shadow: none;
-			box-shadow: none;
-		}
-
-		&:checked + label:nth-of-type(3n+3) {
-			@include gradient-bg($c-aqua-d);
-			color: white;
 			-webkit-box-shadow: none;
 			box-shadow: none;
 		}
@@ -275,91 +275,20 @@ input::-webkit-inner-spin-button {
 	label {
 		float: left;
 		display: inline-block;
-		width: 120px;
-		margin-bottom: 2em;
-		@include gradient-bg($c-grey-l);
-		color: rgba(0, 0, 0, 0.6);
-		font-size: 14px;
-		font-weight: normal;
+		background: none;
+		color: $c-blue-d;
+		border: 2px solid $c-pink;
 		text-align: center;
 		text-shadow: none;
-		padding: 1em 1.5em;
-		// border: 1px solid rgba(0, 0, 0, 0.2);
+		padding: .5em 1em;
 		@include transition($time: 0.1s);
-		@include boxshadow();
 
 		&:hover {
 			cursor: pointer;
-			@include gradient-bg($c-grey-d);
+			@include boxshadow;
+			background: $c-pink;
 			color: $c-white;
+			transform: scale(1.15);
 		}
-
-		// left pill
-		&:first-of-type {
-			border-radius: 4px 0 0 4px;
-		}
-
-		// right pill
-		&:last-of-type {
-			border-radius: 0 4px 4px 0;
-		}
-	}
-} 
-
-.control.control-radio{
-	position: relative;
-	cursor: pointer;
-	padding: .25em 1.75em;
-	margin: .25em 1.25em;
-
-	input{
-		@extend %hidden-element;
-	}
-
-	.control-indicator{
-		position: absolute;
-		top: 15%;
-		left: 0;
-		width: 24px;
-		height: 24px;
-		padding: 0;
-		text-align: center;
-		background: $c-grey-l;
-		border-radius: 100%;
-	}
-
-	// hover state
-	&:hover input ~ .control-indicator,
-	input:focus ~ .control-indicator{
-		background: $c-grey-d;
-	}
-
-	// checked
-	input:checked ~ .control-indicator{
-		background: $c-aqua-l;
-		color: $c-blackish;
-		// inner circle
-		// &:after{
-		// 	position: absolute;
-		// 	content: ' ';
-		// 	top: 25%;
-		// 	left: 25%;
-		// 	width: 12px;
-		// 	height: 12px;
-		// 	border-radius: 100%;
-		// 	background: $c-white;
-		// }
-	}
-
-	// not checked
-	input:not(checked) + .control-indicator{
-		color: transparent;
-	}
-
-	// checked hover state
-	&:hover input:not([disabled]):checked ~ .control-indicator,
-	input:checked:focus ~ .control-indicator{
-		background: $c-aqua-d;
 	}
 }
- */

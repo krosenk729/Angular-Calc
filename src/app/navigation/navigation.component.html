@@ -5,11 +5,13 @@
 		</select>
 	</div>
 	<div class="right">
-		<label>Price
-			<input type="radio" name="type" value="price" [(ngModel)]="calcType" (change)="emitNewType($event)">
-		</label>
-		<label>Nutrition
-			<input type="radio" name="type" value="nutrition" [(ngModel)]="calcType" (change)="emitNewType($event)">
-		</label>
+		<div class="radio-switch">
+			<input type="radio" name="type" value="price" id="price-radio" [(ngModel)]="calcType" (change)="emitNewType($event)">
+			<label for="price-radio">Price</label>
+		</div>
+		<div class="radio-switch">
+			<input type="radio" name="type" value="nutrition" id="nutrition-radio" [(ngModel)]="calcType" (change)="emitNewType($event)">
+			<label for="nutrition-radio">Nutrition</label>
+		</div>
 	</div>
 </div>

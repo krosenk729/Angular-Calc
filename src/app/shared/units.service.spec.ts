@@ -14,11 +14,11 @@ describe('UnitsService', () => {
   }));
 
   it('should return an array of units', inject([UnitsService], (unitService: UnitsService) => {
-    expect(typeof unitService.getAllUnits).toBe('array');
-    expect(unitService.getAllUnits.length).toBe(5);
+    expect(typeof unitService.getAllUnits()).toBe('object');
+    expect(unitService.getAllUnits().length).toBe(4);
 
-    expect(typeof unitService.getCalcUnits).toBe('array');
-    expect(unitService.getCalcUnits.length).toBe(4);
+    expect(typeof unitService.getCalcUnits()).toBe('object');
+    expect(unitService.getCalcUnits().length).toBe(3);
   
   }));
 });

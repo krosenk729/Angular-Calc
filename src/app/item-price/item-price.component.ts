@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DecimalPipe } from '@angular/common';
 import { UnitsService } from '../shared/units.service';
@@ -8,7 +8,7 @@ import { ConversionService } from '../shared/conversion.service';
 	selector: 'app-item-price',
 	templateUrl: './item-price.component.html'
 })
-export class ItemPriceComponent implements OnInit {
+export class ItemPriceComponent implements OnInit, OnChanges {
 	@Input() calcUnit: string;
 	@Input() itemNo: string;
 
@@ -28,6 +28,10 @@ export class ItemPriceComponent implements OnInit {
 		this.units = this.unitService.getAllUnits();
 		this.handleNewCalc();
 		console.log('item-price', this.calcUnit);
+	}
+
+	ngOnChanges(){
+		this.handleNewCalc();
 	}
 
 	handleNewCalc(){

@@ -1,8 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
-import { ItemPriceComponent } from './item-price.component';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
+import { ItemPriceComponent } from './item-price.component';
+import { UnitsService } from '../shared/units.service';
+import { ConversionService } from '../shared/conversion.service';
 
 describe('ItemComponent', () => {
 
@@ -17,7 +19,8 @@ describe('ItemComponent', () => {
   beforeEach(async()=>{
     TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [ItemPriceComponent]
+      declarations: [ItemPriceComponent],
+      providers: [UnitsService, ConversionService]
     }).compileComponents();
   });
 
@@ -31,17 +34,20 @@ describe('ItemComponent', () => {
     // detect changes since data will change in component over time 
     fixture.detectChanges();
 
-    debugElement = fixture.debugElement.query(By.css('.card-footer > div'));
+    debugElement = fixture.debugElement.query(By.css('.card-footer .styled'));
     htmlElement = debugElement.nativeElement;
   });
 
   it('should display the calculated price per qty', ()=>{
-    expect(htmlElement.textContent).toContain('$0.00 per 1 g');
+    expect(htmlElement.textContent).toContain('1.00');
   });
 
-  it('should calculated price as converted between units and qty', ()=>{
-    const foundPrice = component.findNewPrice('lbs', 'oz', 1, 16, 1);;
-    expect(foundPrice).toEqual(1);
+  it('should update caluclated price as component values update', ()=>{
+    const firstPrice = component.calcPrice;
+    component.price *= 2;
+    component.handleNewCalc();
+    const secondPrice = component.calcPrice;
+    expect(firstPrice).toBeLessThan(secondPrice);
   });
 
 });

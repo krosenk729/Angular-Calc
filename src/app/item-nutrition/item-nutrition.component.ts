@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DecimalPipe } from '@angular/common';
 import { UnitsService } from '../shared/units.service';
@@ -8,7 +8,7 @@ import { ConversionService } from '../shared/conversion.service';
 	selector: 'app-item-nutrition',
 	templateUrl: './item-nutrition.component.html'
 })
-export class ItemNutritionComponent implements OnInit {
+export class ItemNutritionComponent implements OnInit, OnChanges {
 	@Input() calcUnit: string;
 	@Input() itemNo: string;
 
@@ -32,6 +32,10 @@ export class ItemNutritionComponent implements OnInit {
 
 	ngOnInit(){
 		this.units = this.unitService.getCalcUnits();
+		this.handleNewCalc();
+	}
+
+	ngOnChanges(){
 		this.handleNewCalc();
 	}
 	
