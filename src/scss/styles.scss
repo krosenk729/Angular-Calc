@@ -301,4 +301,21 @@ input::-webkit-inner-spin-button {
 	top: 0;
 	bottom: 0;
 	overflow: hidden;
+
+
+	.circle-2 {
+		width: 21px;
+		height: 21px;
+		top: 340px;
+		left: 220px;
+	}
+
+	.half-circle {
+		width: 201px;
+		height: 220px;
+		left: 524px;
+		top: 180px;
+		-webkit-transform: rotate(-54deg);
+		transform: rotate(-54deg);
+	}
 }
