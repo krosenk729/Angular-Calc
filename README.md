@@ -1,11 +1,18 @@
 # AngularCalCompare
 
----
+https://krosenk729.github.io/Angular-Calc/
 
-To Dos:
-+ button style toggle
-+ test cases
-+ make the readme more awesome 
+---
+### Have you ever asked 
++ "gee which is a better price, this X ounce thing or this Y gram thing"?
++ "which of these has fewer calories per serving, the X gram thing or the Y pound guy"?
+
+### Stop asking and start app-using
+
+![demo 1](/src/assets/demo-1.png)
+
+![demo 2](/src/assets/demo-2.png)
+
 
 ---
 
